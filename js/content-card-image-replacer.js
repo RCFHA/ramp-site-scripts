@@ -1,4 +1,13 @@
 document.addEventListener('DOMContentLoaded', function () {
+  const assocSportBackgroundPattern =
+    /url\(["']?https:\/\/cloud3\.rampinteractive\.com\/(?:[^"'()]*\/)?_global\/ballhockey\/images\/assoc-bg-sport-\d+\.jpg(?:[?#][^"'()]*)?["']?\)/i;
+
+  function hasAssocSportBackground(card) {
+    return [card, ...card.querySelectorAll('*')].some((element) =>
+      assocSportBackgroundPattern.test(getComputedStyle(element).backgroundImage),
+    );
+  }
+
   // --- NEWS ARTICLES ---
   const newsLinks = Array.from(document.querySelectorAll('a')).filter((a) =>
     a.textContent.includes('Read Article'),
@@ -6,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   newsLinks.forEach((link) => {
     const card = link.closest('.content-card');
-    if (!card) return;
+    if (!card || !hasAssocSportBackground(card)) return;
 
     const img = card.querySelector('.content-card-img');
     if (!img) return;
@@ -25,7 +34,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   eventLinks.forEach((link) => {
     const card = link.closest('.content-card');
-    if (!card) return;
+
+    if (!card || !hasAssocSportBackground(card)) return;
 
     const img = card.querySelector('.content-card-img');
     if (!img) return;
