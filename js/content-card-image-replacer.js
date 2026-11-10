@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
   newsLinks.forEach((link) => {
     const card = link.closest('.content-card');
     if (!card || !hasAssocSportBackground(card)) return;
-
+    card.classList.add('rcfha-news-card');
     const img = card.querySelector('.content-card-img');
     if (!img) return;
 
@@ -26,7 +26,6 @@ document.addEventListener('DOMContentLoaded', function () {
     img.style.backgroundPosition = 'center';
     img.style.backgroundRepeat = 'no-repeat';
   });
-  card.classList.add('rcfha-news-card');
 
   // --- EVENT DETAILS ---
   const eventLinks = Array.from(document.querySelectorAll('a')).filter((a) =>
@@ -35,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   eventLinks.forEach((link) => {
     const card = link.closest('.content-card');
-
+    card.classList.add('rcfha-event-card');
     if (!card || !hasAssocSportBackground(card)) return;
 
     const img = card.querySelector('.content-card-img');
@@ -47,5 +46,4 @@ document.addEventListener('DOMContentLoaded', function () {
     img.style.backgroundPosition = 'center';
     img.style.backgroundRepeat = 'no-repeat';
   });
-  card.classList.add('rcfha-event-card');
 });
