@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
     img.style.backgroundPosition = 'center';
     img.style.backgroundRepeat = 'no-repeat';
   });
+  card.classList.add('rcfha-news-card');
 
   // --- EVENT DETAILS ---
   const eventLinks = Array.from(document.querySelectorAll('a')).filter((a) =>
@@ -46,4 +47,5 @@ document.addEventListener('DOMContentLoaded', function () {
     img.style.backgroundPosition = 'center';
     img.style.backgroundRepeat = 'no-repeat';
   });
+  card.classList.add('rcfha-event-card');
 });
